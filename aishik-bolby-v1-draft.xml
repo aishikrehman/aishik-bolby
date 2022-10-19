@@ -2,10 +2,12 @@
 <html b:css='false' b:version='2' lang='en' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
   <head>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'/>
+    <!--<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css' rel='stylesheet'/>-->
     <link href='https://bolby-react.vercel.app/css/all.min.css' rel='stylesheet'/>
     <link href='https://bolby-react.vercel.app/static/css/2.40ef41fb.chunk.css' rel='stylesheet'/>
     <link href='https://bolby-react.vercel.app/css/simple-line-icons.css' rel='stylesheet'/>
-
+    <script src='https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.2/dist/index.bundle.min.js'/>
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js'/>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js'/>
     <b:skin><![CDATA[
 * {
@@ -3315,6 +3317,29 @@ body#layout .widget-content, body#layout .locked-widget .widget-content { backgr
     </b:template-skin>
   </head>
   <body>
+    <b:defaultmarkups>
+      <b:defaultmarkup type='Common'>
+        <b:includable id='ai-works-image'>
+           <b:class name='col-md-4 col-sm-6 grid-item'/>
+                <b:class expr:name='data:caption'/>
+                <b:tag class='work-image' cond='data:link' expr:href='data:link' name='a'>
+                  <div class='portfolio-item rounded shadow-dark'>
+                    <div class='details'>
+                      <span class='term text-capitalize'><data:caption/></span>
+                      <b:if cond='data:title != &quot;&quot;'><h4 class='title'><data:title/></h4></b:if>
+                      <span class='more-button'><i class='icon-magnifier-add'/></span>
+                    </div>
+                    <div class='thumb'>
+                      <img expr:alt='data:title' expr:height='data:height' expr:id='data:widget.instanceId + &quot;_img&quot;' expr:src='data:sourceUrl' expr:width='data:width'/>
+                      <div class='mask'/>
+                    </div>
+                  </div>
+                </b:tag>
+          <b:include name='quickedit'/>
+        </b:includable>
+      </b:defaultmarkup>
+    </b:defaultmarkups>
+
     <b:section class='desktop-header-1 d-flex align-items-start flex-column light' id='header' name='Header Section' showaddelement='no'>
       <b:widget id='Header1' locked='false' title='Beta Version (Header)' type='Header' version='1'>
         <b:widget-settings>
@@ -3416,7 +3441,7 @@ body#layout .widget-content, body#layout .locked-widget .widget-content { backgr
       </b:widget>
     </b:section>
     <div class='main content' id='main'>
-      <div class='home d-flex align-items-center light' id='home' style='user-select: none;'>
+      <section class='home d-flex align-items-center light' id='home' style='user-select: none;'>
         <div class='container'>
           <b:section class='intro' id='intro' name='Intro Section'>
             <b:widget id='Image1' locked='false' title='Aishik Rehman' type='Image' version='1'>
@@ -3431,7 +3456,7 @@ body#layout .widget-content, body#layout .locked-widget .widget-content { backgr
               </b:widget-settings>
               <b:includable id='main'>
                 <script type='text/javascript'>
-            //<![CDATA[
+                  //<![CDATA[
 var
   words = ['a Bangladeshi Wikipedian','a Frontend Developer','a lexicographer'],
   part,
@@ -3481,7 +3506,7 @@ $(document).ready(function(){
   wordflick();
 });
      //]]>
-          </script>
+                </script>
                 <img class='mb-4' expr:alt='data:title' expr:height='data:height' expr:id='data:widget.instanceId + &quot;_img&quot;' expr:src='data:sourceUrl' expr:width='data:width'/>
                 <b:if cond='data:title != &quot;&quot;'>
                   <h1 class='mb-2 mt-0'><data:title/></h1>
@@ -3494,15 +3519,21 @@ $(document).ready(function(){
             </b:widget>
             <b:widget id='LinkList2' locked='false' title='Social Media Icons' type='LinkList' version='1'>
               <b:widget-settings>
+                <b:widget-setting name='link-5'>#</b:widget-setting>
+                <b:widget-setting name='link-6'>#</b:widget-setting>
                 <b:widget-setting name='link-3'>https://meta.wikimedia.org/wiki/user:Aishik_Rehman</b:widget-setting>
-                <b:widget-setting name='sorting'>NONE</b:widget-setting>
+                <b:widget-setting name='link-4'>#</b:widget-setting>
                 <b:widget-setting name='text-1'>twitter</b:widget-setting>
-                <b:widget-setting name='link-1'>#</b:widget-setting>
                 <b:widget-setting name='text-0'>facebook</b:widget-setting>
-                <b:widget-setting name='link-2'>#</b:widget-setting>
-                <b:widget-setting name='text-3'>wikipedia</b:widget-setting>
-                <b:widget-setting name='link-0'>https://facebook.com/aishikrehman</b:widget-setting>
+                <b:widget-setting name='text-3'>behance</b:widget-setting>
                 <b:widget-setting name='text-2'>YouTube</b:widget-setting>
+                <b:widget-setting name='text-5'>pinterest</b:widget-setting>
+                <b:widget-setting name='text-4'>dribbble</b:widget-setting>
+                <b:widget-setting name='text-6'>instagram</b:widget-setting>
+                <b:widget-setting name='sorting'>NONE</b:widget-setting>
+                <b:widget-setting name='link-1'>#</b:widget-setting>
+                <b:widget-setting name='link-2'>#</b:widget-setting>
+                <b:widget-setting name='link-0'>https://facebook.com/aishikrehman</b:widget-setting>
               </b:widget-settings>
               <b:includable id='main'>
                 <ul class='social-icons light list-inline mb-0 mt-4'>
@@ -3527,7 +3558,7 @@ $(document).ready(function(){
             </b:widget>
           </b:section>
         </div>
-      </div>
+      </section>
       <section id='about'>
         <div class='container'>
           <div class='animated fadeInUp' style='animation-duration: 1s;'>
@@ -3551,7 +3582,7 @@ $(document).ready(function(){
                   <b:widget-settings>
                     <b:widget-setting name='sorting'>NONE</b:widget-setting>
                     <b:widget-setting name='text-0'>Download CV</b:widget-setting>
-                    <b:widget-setting name='link-0'>#</b:widget-setting>
+                    <b:widget-setting name='link-0'>https://drive.google.com/file/d/1kehG5nMIp-hYXS-ZJ4lfhbVsGF_dngCa/view</b:widget-setting>
                   </b:widget-settings>
                   <b:includable id='main'>
                     <b:class name='col-md-8'/>
@@ -3608,103 +3639,210 @@ $(document).ready(function(){
           <div class='spacer' data-height='70'/>
         </div>
       </section>
+      <section id='service'>
+        <div class='container'>
+          <div class='animated fadeInUp' style='animation-duration: 1s;'><h2 class='section-title'>Services</h2></div>
+          <div class='spacer' data-height='60'/>
+          <b:section class='row fix-spacing' id='Services' name='Services Section'>
+            <b:widget id='Image2' locked='false' title='UI/UX design' type='Image' version='1'>
+              <b:widget-settings>
+                <b:widget-setting name='displayUrl'>https://bolby-react.vercel.app/images/service-1.svg</b:widget-setting>
+                <b:widget-setting name='displayHeight'>80</b:widget-setting>
+                <b:widget-setting name='sectionWidth'>1046</b:widget-setting>
+                <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
+                <b:widget-setting name='displayWidth'>80</b:widget-setting>
+                <b:widget-setting name='link'/>
+                <b:widget-setting name='caption'>Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo ligula eget.</b:widget-setting>
+              </b:widget-settings>
+              <b:includable id='main'>
+                <b:class name='col-md-4'/>
+                <b:tag cond='data:link' expr:href='data:link' name='a'>
+                  <div class='service-box rounded data-background padding-30 text-center text-light shadow-blue' data-color='#6C6CE5' style='background: rgb(108, 108, 229); box-shadow: rgba(108, 108, 229, 0.5) 0px 5px 20px 0px;'>
+                    <img expr:alt='data:title' expr:height='data:height' expr:id='data:widget.instanceId + &quot;_img&quot;' expr:src='data:sourceUrl' expr:width='data:width'/>
+                    <b:if cond='data:title != &quot;&quot;'><h3 class='mb-3 mt-0'><data:title/></h3>
+                    </b:if>
+                    <p class='mb-0'><data:caption/></p>
+                  </div>
+                </b:tag>
+                <b:include name='quickedit'/>
+              </b:includable>
+            </b:widget>
+            <b:widget id='Image3' locked='false' title='Web Development' type='Image' version='1'>
+              <b:widget-settings>
+                <b:widget-setting name='displayUrl'>https://bolby-react.vercel.app/images/service-2.svg</b:widget-setting>
+                <b:widget-setting name='displayHeight'>79</b:widget-setting>
+                <b:widget-setting name='sectionWidth'>1046</b:widget-setting>
+                <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
+                <b:widget-setting name='displayWidth'>91</b:widget-setting>
+                <b:widget-setting name='link'/>
+                <b:widget-setting name='caption'>Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo ligula eget.</b:widget-setting>
+              </b:widget-settings>
+              <b:includable id='main'>
+                <b:class name='col-md-4'/>
+                <b:tag cond='data:link' expr:href='data:link' name='a'>
+                  <div class='service-box rounded data-background padding-30 text-center shadow-blue' data-color='#6C6CE5' style='background: rgb(249, 215, 76); box-shadow: rgba(249, 215, 76, 0.5) 0px 5px 20px 0px;'>
+                    <img expr:alt='data:title' expr:height='data:height' expr:id='data:widget.instanceId + &quot;_img&quot;' expr:src='data:sourceUrl' expr:width='data:width'/>
+                    <b:if cond='data:title != &quot;&quot;'><h3 class='mb-3 mt-0'><data:title/></h3>
+                    </b:if>
+                    <p class='mb-0'><data:caption/></p>
+                  </div>
+                </b:tag>
+                <b:include name='quickedit'/>
+              </b:includable>
+            </b:widget>
+            <b:widget id='Image4' locked='false' title='Photography' type='Image' version='1'>
+              <b:widget-settings>
+                <b:widget-setting name='displayUrl'>https://bolby-react.vercel.app/images/service-3.svg</b:widget-setting>
+                <b:widget-setting name='displayHeight'>80</b:widget-setting>
+                <b:widget-setting name='sectionWidth'>1046</b:widget-setting>
+                <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
+                <b:widget-setting name='displayWidth'>96</b:widget-setting>
+                <b:widget-setting name='link'/>
+                <b:widget-setting name='caption'>Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo ligula eget.</b:widget-setting>
+              </b:widget-settings>
+              <b:includable id='main'>
+                <b:class name='col-md-4'/>
+                <b:tag cond='data:link' expr:href='data:link' name='a'>
+                  <div class='service-box rounded data-background padding-30 text-center text-light shadow-blue' data-color='#6C6CE5' style='background: rgb(249, 123, 139); box-shadow: rgba(249, 123, 139, 0.5) 0px 5px 20px 0px;'>
+                    <img expr:alt='data:title' expr:height='data:height' expr:id='data:widget.instanceId + &quot;_img&quot;' expr:src='data:sourceUrl' expr:width='data:width'/>
+                    <b:if cond='data:title != &quot;&quot;'><h3 class='mb-3 mt-0'><data:title/></h3>
+                    </b:if>
+                    <p class='mb-0'><data:caption/></p>
+                  </div>
+                </b:tag>
+                <b:include name='quickedit'/>
+              </b:includable>
+            </b:widget>
+          </b:section>
+          <div class='mt-5 text-center'><p class='mb-0'>Looking for a custom job? <a class='colorpink pointer'>Click here</a> to contact me! 👋</p></div>
+        </div>
+      </section>
+      <section id='experience'>
+        <b:section id='Experiences' name='Experiences Section'>
+          <b:widget id='HTML2' locked='false' title='' type='HTML' version='1'>
+            <b:widget-settings>
+              <b:widget-setting name='content'><![CDATA[<div class="container"><div class="animated fadeInUp" style="animation-duration: 1s;"><h2 class="section-title">Experience</h2></div><div class="spacer" data-height="60"></div><div class="row"><div class="col-md-6"><div class="timeline edu bg-white rounded shadow-dark padding-30 overflow-hidden"><div class="animated fadeInUp" style="animation-duration: 1s;"><div class="timeline-container"><div class="content"><span class="time">2019 - Present</span><h3 class="title">Acamedic Degree</h3><p>Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.</p></div></div></div><div class="animated fadeInUp" style="animation-duration: 1s;"><div class="timeline-container"><div class="content"><span class="time">2017 - 2013</span><h3 class="title">Bachelor’s Degree</h3><p>Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.</p></div></div></div><div class="animated fadeInUp" style="animation-duration: 1s;"><div class="timeline-container"><div class="content"><span class="time">2013 - 2009</span><h3 class="title">Honours Degree</h3><p>Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.</p></div></div></div><span class="line"></span></div></div><div class="col-md-6"><div class="spacer d-md-none d-lg-none" data-height="30"></div><div class="timeline exp bg-white rounded shadow-dark padding-30 overflow-hidden"><div class="animated fadeInUp" style="animation-duration: 1s;"><div class="timeline-container"><div class="content"><span class="time">2019 - Present</span><h3 class="title">Web Designer</h3><p>Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.</p></div></div></div><div class="animated fadeInUp" style="animation-duration: 1s;"><div class="timeline-container"><div class="content"><span class="time">2017 - 2013</span><h3 class="title">Front-End Developer</h3><p>Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.</p></div></div></div><div class="animated fadeInUp" style="animation-duration: 1s;"><div class="timeline-container"><div class="content"><span class="time">2013 - 2009</span><h3 class="title">Back-End Developer</h3><p>Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.</p></div></div></div><span class="line"></span></div></div></div></div>]]></b:widget-setting>
+            </b:widget-settings>
+            <b:includable id='main'>
+              <!-- only display title if it's non-empty -->
+              <b:if cond='data:title != &quot;&quot;'>
+                <h2 class='title'><data:title/></h2>
+              </b:if>
+              <div class='widget-content'>
+                <data:content/>
+              </div>
 
-      <div class='container'>
-        <div class='animated fadeInUp' style='animation-duration: 1s;'><h2 class='section-title'>Services</h2></div>
-        <div class='spacer' data-height='60'/>
-        <b:section class='row fix-spacing' id='Services' name='Services Section'>
-          <b:widget id='Image2' locked='false' title='UI/UX design' type='Image' version='1'>
-            <b:widget-settings>
-              <b:widget-setting name='displayUrl'>https://bolby-react.vercel.app/images/service-1.svg</b:widget-setting>
-              <b:widget-setting name='displayHeight'>80</b:widget-setting>
-              <b:widget-setting name='sectionWidth'>1046</b:widget-setting>
-              <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
-              <b:widget-setting name='displayWidth'>80</b:widget-setting>
-              <b:widget-setting name='link'/>
-              <b:widget-setting name='caption'>Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo ligula eget.</b:widget-setting>
-            </b:widget-settings>
-            <b:includable id='main'>
-              <b:class name='col-md-4'/>
-              <b:tag cond='data:link' expr:href='data:link' name='a'>
-                <div class='service-box rounded data-background padding-30 text-center text-light shadow-blue' data-color='#6C6CE5' style='background: rgb(108, 108, 229); box-shadow: rgba(108, 108, 229, 0.5) 0px 5px 20px 0px;'>
-                  <img expr:alt='data:title' expr:height='data:height' expr:id='data:widget.instanceId + &quot;_img&quot;' expr:src='data:sourceUrl' expr:width='data:width'/>
-                  <b:if cond='data:title != &quot;&quot;'><h3 class='mb-3 mt-0'><data:title/></h3>
-                  </b:if>
-                  <p class='mb-0'><data:caption/></p>
-                </div>
-              </b:tag>
-              <b:include name='quickedit'/>
-            </b:includable>
-          </b:widget>
-          <b:widget id='Image3' locked='false' title='Web Development' type='Image' version='1'>
-            <b:widget-settings>
-              <b:widget-setting name='displayUrl'>https://bolby-react.vercel.app/images/service-2.svg</b:widget-setting>
-              <b:widget-setting name='displayHeight'>79</b:widget-setting>
-              <b:widget-setting name='sectionWidth'>1046</b:widget-setting>
-              <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
-              <b:widget-setting name='displayWidth'>91</b:widget-setting>
-              <b:widget-setting name='link'/>
-              <b:widget-setting name='caption'>Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo ligula eget.</b:widget-setting>
-            </b:widget-settings>
-            <b:includable id='main'>
-              <b:class name='col-md-4'/>
-              <b:tag cond='data:link' expr:href='data:link' name='a'>
-                <div class='service-box rounded data-background padding-30 text-center shadow-blue' data-color='#6C6CE5' style='background: rgb(249, 215, 76); box-shadow: rgba(249, 215, 76, 0.5) 0px 5px 20px 0px;'>
-                  <img expr:alt='data:title' expr:height='data:height' expr:id='data:widget.instanceId + &quot;_img&quot;' expr:src='data:sourceUrl' expr:width='data:width'/>
-                  <b:if cond='data:title != &quot;&quot;'><h3 class='mb-3 mt-0'><data:title/></h3>
-                  </b:if>
-                  <p class='mb-0'><data:caption/></p>
-                </div>
-              </b:tag>
-              <b:include name='quickedit'/>
-            </b:includable>
-          </b:widget>
-          <b:widget id='Image4' locked='false' title='Photography' type='Image' version='1'>
-            <b:widget-settings>
-              <b:widget-setting name='displayUrl'>https://bolby-react.vercel.app/images/service-3.svg</b:widget-setting>
-              <b:widget-setting name='displayHeight'>80</b:widget-setting>
-              <b:widget-setting name='sectionWidth'>1046</b:widget-setting>
-              <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
-              <b:widget-setting name='displayWidth'>96</b:widget-setting>
-              <b:widget-setting name='link'/>
-              <b:widget-setting name='caption'>Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo ligula eget.</b:widget-setting>
-            </b:widget-settings>
-            <b:includable id='main'>
-              <b:class name='col-md-4'/>
-              <b:tag cond='data:link' expr:href='data:link' name='a'>
-                <div class='service-box rounded data-background padding-30 text-center text-light shadow-blue' data-color='#6C6CE5' style='background: rgb(249, 123, 139); box-shadow: rgba(249, 123, 139, 0.5) 0px 5px 20px 0px;'>
-                  <img expr:alt='data:title' expr:height='data:height' expr:id='data:widget.instanceId + &quot;_img&quot;' expr:src='data:sourceUrl' expr:width='data:width'/>
-                  <b:if cond='data:title != &quot;&quot;'><h3 class='mb-3 mt-0'><data:title/></h3>
-                  </b:if>
-                  <p class='mb-0'><data:caption/></p>
-                </div>
-              </b:tag>
               <b:include name='quickedit'/>
             </b:includable>
           </b:widget>
         </b:section>
-        <div class='mt-5 text-center'><p class='mb-0'>Looking for a custom job? <a class='colorpink pointer'>Click here</a> to contact me! 👋</p></div>
-      </div>
+      </section>
+      <section id='works'>
+        <div class='container'>
+          <div class='animated fadeInUp' style='animation-duration: 1s;'>
+            <h2 class='section-title'>Recent Works</h2>
+            <script>
+              $(document).ready(function(){
 
-      <b:section id='Experiences' name='Experiences Section'>
-        <b:widget id='HTML2' locked='false' title='' type='HTML' version='1'>
-          <b:widget-settings>
-            <b:widget-setting name='content'><![CDATA[<div class="container"><div class="animated fadeInUp" style="animation-duration: 1s;"><h2 class="section-title">Experience</h2></div><div class="spacer" data-height="60"></div><div class="row"><div class="col-md-6"><div class="timeline edu bg-white rounded shadow-dark padding-30 overflow-hidden"><div class="animated fadeInUp" style="animation-duration: 1s;"><div class="timeline-container"><div class="content"><span class="time">2019 - Present</span><h3 class="title">Acamedic Degree</h3><p>Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.</p></div></div></div><div class="animated fadeInUp" style="animation-duration: 1s;"><div class="timeline-container"><div class="content"><span class="time">2017 - 2013</span><h3 class="title">Bachelor’s Degree</h3><p>Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.</p></div></div></div><div class="animated fadeInUp" style="animation-duration: 1s;"><div class="timeline-container"><div class="content"><span class="time">2013 - 2009</span><h3 class="title">Honours Degree</h3><p>Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.</p></div></div></div><span class="line"></span></div></div><div class="col-md-6"><div class="spacer d-md-none d-lg-none" data-height="30"></div><div class="timeline exp bg-white rounded shadow-dark padding-30 overflow-hidden"><div class="animated fadeInUp" style="animation-duration: 1s;"><div class="timeline-container"><div class="content"><span class="time">2019 - Present</span><h3 class="title">Web Designer</h3><p>Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.</p></div></div></div><div class="animated fadeInUp" style="animation-duration: 1s;"><div class="timeline-container"><div class="content"><span class="time">2017 - 2013</span><h3 class="title">Front-End Developer</h3><p>Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.</p></div></div></div><div class="animated fadeInUp" style="animation-duration: 1s;"><div class="timeline-container"><div class="content"><span class="time">2013 - 2009</span><h3 class="title">Back-End Developer</h3><p>Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.</p></div></div></div><span class="line"></span></div></div></div></div>]]></b:widget-setting>
-          </b:widget-settings>
-          <b:includable id='main'>
-            <!-- only display title if it's non-empty -->
-            <b:if cond='data:title != &quot;&quot;'>
-              <h2 class='title'><data:title/></h2>
-            </b:if>
-            <div class='widget-content'>
-              <data:content/>
-            </div>
+    $(&quot;.portfolio-filter button.text-capitalize&quot;).click(function(){
+        var value = $(this).attr(&#39;data-filter&#39;);
+        
+        if(value == &quot;all&quot;)
+        {
+            //$(&#39;.filter&#39;).removeClass(&#39;hidden&#39;);
+            $(&#39;.grid-item&#39;).show(&#39;1000&#39;);
+        }
+        else
+        {
+//            $(&#39;.filter[filter-item=&quot;&#39;+value+&#39;&quot;]&#39;).removeClass(&#39;hidden&#39;);
+//            $(&quot;.filter&quot;).not(&#39;.filter[filter-item=&quot;&#39;+value+&#39;&quot;]&#39;).addClass(&#39;hidden&#39;);
+            $(&quot;.grid-item&quot;).not(&#39;.&#39;+value).hide(&#39;3000&#39;);
+            $(&#39;.grid-item&#39;).filter(&#39;.&#39;+value).show(&#39;3000&#39;);
+            
+        }
+    });
+    
+    if ($(&quot;.filter-button&quot;).removeClass(&quot;active&quot;)) {
+$(this).removeClass(&quot;active&quot;);
+}
+$(this).addClass(&quot;active&quot;);
 
-            <b:include name='quickedit'/>
-          </b:includable>
-        </b:widget>
-      </b:section>
-      <b:section id='Works' name='Recent Works Section'/>
+});
+            </script>
+          </div>
+          <div class='spacer' data-height='60'/>
+          <b:if cond='!data:view.isLayoutMode'>
+          <div class='animated fadeInUp' style='animation-duration: 1s;'>
+            <ul class='portfolio-filter list-inline'>
+              <li class='list-inline-item'><button class='text-capitalize active' data-filter='all'>all</button></li>
+              <li class='list-inline-item'><button class='text-capitalize' data-filter='creative'>creative</button></li>
+              <li class='list-inline-item'><button class='text-capitalize' data-filter='art'>art</button></li>
+              <li class='list-inline-item'><button class='text-capitalize' data-filter='design'>design</button></li>
+              <li class='list-inline-item'><button class='text-capitalize' data-filter='branding'>branding</button></li>
+            </ul>
+          </div>
+          </b:if>
+          <b:section class='row portfolio-wrapper' id='Works' name='Recent Works Section'>
+            <b:widget id='Image8' locked='false' title='Onboarding Motivation' type='Image' version='1'>
+              <b:widget-settings>
+                <b:widget-setting name='displayUrl'>https://bolby-react.vercel.app/images/works/4.svg</b:widget-setting>
+                <b:widget-setting name='displayHeight'>454</b:widget-setting>
+                <b:widget-setting name='sectionWidth'>1046</b:widget-setting>
+                <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
+                <b:widget-setting name='displayWidth'>560</b:widget-setting>
+                <b:widget-setting name='link'/>
+                <b:widget-setting name='caption'>design</b:widget-setting>
+              </b:widget-settings>
+              <b:includable id='main'>
+                <b:include name='ai-works-image'/>
+              </b:includable>
+            </b:widget>
+            <b:widget id='Image5' locked='false' title='Project Managment Illustration' type='Image' version='1'>
+              <b:widget-settings>
+                <b:widget-setting name='displayUrl'>https://bolby-react.vercel.app/images/works/1.svg</b:widget-setting>
+                <b:widget-setting name='displayHeight'>454</b:widget-setting>
+                <b:widget-setting name='sectionWidth'>1046</b:widget-setting>
+                <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
+                <b:widget-setting name='displayWidth'>560</b:widget-setting>
+                <b:widget-setting name='link'/>
+                <b:widget-setting name='caption'>art</b:widget-setting>
+              </b:widget-settings>
+              <b:includable id='main'>
+                <b:include name='ai-works-image'/>
+              </b:includable>
+            </b:widget>
+            <b:widget id='Image6' locked='false' title='Guest App Walkthrough Screens' type='Image' version='1'>
+              <b:widget-settings>
+                <b:widget-setting name='displayUrl'>https://bolby-react.vercel.app/images/works/2.svg</b:widget-setting>
+                <b:widget-setting name='displayHeight'>454</b:widget-setting>
+                <b:widget-setting name='sectionWidth'>1046</b:widget-setting>
+                <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
+                <b:widget-setting name='displayWidth'>560</b:widget-setting>
+                <b:widget-setting name='link'/>
+                <b:widget-setting name='caption'>creative</b:widget-setting>
+              </b:widget-settings>
+              <b:includable id='main'>
+               <b:include name='ai-works-image'/>
+              </b:includable>
+            </b:widget>
+            <b:widget id='Image7' locked='false' title='Delivery App Wireframe' type='Image' version='1'>
+              <b:widget-settings>
+                <b:widget-setting name='displayUrl'>https://bolby-react.vercel.app/images/works/3.svg</b:widget-setting>
+                <b:widget-setting name='displayHeight'>454</b:widget-setting>
+                <b:widget-setting name='sectionWidth'>1046</b:widget-setting>
+                <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
+                <b:widget-setting name='displayWidth'>560</b:widget-setting>
+                <b:widget-setting name='link'/>
+                <b:widget-setting name='caption'>branding</b:widget-setting>
+              </b:widget-settings>
+              <b:includable id='main'>
+                <b:include name='ai-works-image'/>
+              </b:includable>
+            </b:widget>
+          </b:section>
+          <!--<div class='load-more text-center mt-4'><button class='btn btn-default'><span><i class='fas fa-spinner'/>Load more</span></button></div>-->
+        </div>
+      </section>
       <b:section id='Pricing' name='Pricing Section'/>
       <b:section id='Posts' name='Latest Posts Section'/>
       <div class='spacer' data-height='96'/>
@@ -3760,6 +3898,5 @@ $(document).ready(function(){
       </b:section>
     </div>
     <div class='spacer' data-height='96'/>
-    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js'/>
   </body>
 </html>
