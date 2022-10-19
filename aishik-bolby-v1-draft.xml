@@ -3501,7 +3501,7 @@ $(document).ready(function(){
                 <b:widget-setting name='text-0'>facebook</b:widget-setting>
                 <b:widget-setting name='link-2'>#</b:widget-setting>
                 <b:widget-setting name='text-3'>wikipedia</b:widget-setting>
-                <b:widget-setting name='link-0'>https//facebook.com/aishikrehman</b:widget-setting>
+                <b:widget-setting name='link-0'>https://facebook.com/aishikrehman</b:widget-setting>
                 <b:widget-setting name='text-2'>YouTube</b:widget-setting>
               </b:widget-settings>
               <b:includable id='main'>
