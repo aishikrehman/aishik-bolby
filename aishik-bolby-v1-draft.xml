@@ -6,6 +6,7 @@
     <link href='https://bolby-react.vercel.app/static/css/2.40ef41fb.chunk.css' rel='stylesheet'/>
     <link href='https://bolby-react.vercel.app/css/simple-line-icons.css' rel='stylesheet'/>
 
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js'/>
     <b:skin><![CDATA[
 * {
     margin: 0;
@@ -2939,11 +2940,379 @@ only screen and (min-device-pixel-ratio:1.5) {
       ]]></b:skin>
     <b:template-skin>
       <![CDATA[
+/**
+ * Copyright 2010 Google, Inc. All rights reserved.
+ * Description: CSS for the preview panel of page element page of new ui.
+ */
+
+* {
+  -moz-box-sizing: border-box;
+}
+
+html {
+  background-color: #ffffff;
+  user-select:none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+}
+
+body#layout {
+  _height: auto;
+  background-color: #f1f1f1;
+  border: 1px solid #e5e5e5;
+  font-size: small;
+  margin: 0;
+  min-height: 0;
+  padding: 87px 0 0;
+  text-align: center; /* Center everything below the navbar, for IE */
+}
+
+body#layout.layout-nofavicon {
+  padding: 15px 0 0;
+}
+
+body#layout:after {
+  clear: both;
+  content: " ";
+  display: block;
+  visibility: hidden;
+}
+
+body#layout #sidebar-wrapper {
+  overflow:visible;
+}
+
+body#layout #main-wrapper {
+  overflow:visible;
+}
+
+body#layout div.section {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-family: Roboto, sans-serif;
+  margin: 0 4px 8px 4px; /* Avoid margin collapse in height. */
+  overflow: visible;
+  padding: 16px;
+  position:relative;
+}
+
+body#layout div.section > div {
+  margin-top: 8px;
+}
+
+body#layout div.section .dr_inactive.dropregion {
+  margin-top: 0;
+}
+
+body#layout div.section > div:first-child {
+  margin-top: 0;
+}
+
+body#layout .section-columns {
+  margin: 0;
+}
+
+/* Advise a width for the sections. If the template has a preference
+ * for any given section, that should override this, but there must be
+ * some width assigned to the section for drag-and-drop to work in IE.
+ */
+.section {
+  width: auto;
+}
+
+
+/** Excessive use of ID selectors for overriding base template styles */
+
+body#layout div.widget {
+  float: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: auto;
+}
+
+body#layout div.widget ~ div.widget {
+  margin-top: 8px;
+}
+
+body#layout .widget-content {
+  box-shadow: rgba(0,0,0,0.12) 0 0 2px 0, rgba(0,0,0,0.24) 0 2px 2px 0;
+  color: #666;
+  line-height: 24px;
+  overflow: hidden;
+  padding: 16px;
+  position: relative;
+  text-align: left;
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+ */
+  user-select: none;
+}
+
+body#layout .section-columns .widget-content {
+  padding-bottom: 32px;
+}
+
+body#layout .widget-content a {
+  font-size: 11px;
+  text-decoration: none;
+}
+
+body#layout .draggable-widget .widget-wrap2 {background: #ff4c60 url(/img/widgets/draggable.png) no-repeat 4px 50%;cursor: move;}
+body#layout .draggable-widget .widget-wrap3 {margin-left: 12px; background: #fff;}
+
+body#layout #navbar {
+  /* Different browsers have different definitions of width, here unify them */
+  box-sizing: content-box;
+  height: auto;
+  margin: 8px auto;
+  max-width: 718px;
+  z-index: 0;
+}
+
+body#layout .locked-widget .widget-content {
+  background-color: #fff;
+}
+
+body#layout .Blog .widget-content {height: 16em;}
+body#layout #navbar .Navbar {width: auto;}
+body#layout #navbar .Navbar .widget-wrap2 {outline: none !important;}
+body#layout #navbar .dropregion {height: 0;}
+body#layout .add_widget {
+  border: 1px dashed #ccc;
+  padding: 16px;
+  position: relative;
+  text-align: left;
+}
+
+body#layout .add_widget a {
+  color: #2196F3;
+  display: block;
+  font-size: 16px;
+  line-height: 24px;
+  margin-left: 40px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+body#layout .section-columns .add_widget a {
+  margin-left: 32px;
+}
+
+body#layout .add_widget a::before {
+  content:
+}
+
+body#layout a:visited {
+  color: #15c;
+}
+
+body#layout a:hover {
+  text-decoration: underline;
+}
+
+body#layout div.layout-title {
+  font-size: 16px;
+}
+
+body#layout div.layout-widget-description {
+  color: rgba(0,0,0,0.52);
+  font-size: 14px;
+}
+
+body#layout div.layout-widget-status {
+  font-size: 11px;
+}
+
+body#layout .visible {
+  color: #00B800;
+}
+
+body#layout .not-visible {
+  color: #B80000;
+}
+
+body#layout .editlink {
+  bottom: 8px;
+  color: #7f9acc !important;
+  cursor: pointer;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  right: 10px;
+  text-decoration: underline;
+}
+
+body#layout .dropregion {
+  font-size: 1px; /* these trump the default min line height in ie/win */
+  line-height: 0;
+  height: 0;
+  margin:0 4px;
+  position: relative;
+}
+
+body#layout .el_active {
+  z-index:10;
+}
+
+body#layout .dr_active {
+  border: 1px dashed #d4e1ff;
+  background-color: #fff;
+  margin:0 4px 3px 4px;
+}
+
+/**
+ * Some of the headers (ex: 897) have a large amount of padding in them
+ * that we want to strip in wireframe mode.
+ * Just overwrite the relevant style definitions here.
+ */
+body#layout #header-wrapper {
+  min-height: 0px;
+}
+
+/*
+ * Overrides the style set for new templates in v2-structure.css.
+ * Wireframe mode doesn't need it.
+ */
+body#layout .columns {
+  overflow: visible;
+}
+
+body#layout .header-outer,
+body#layout .tabs-outer,
+body#layout .main-outer,
+body#layout .footer-outer {
+  margin: 0;
+}
+
+body#layout .header-inner,
+body#layout .tabs-inner,
+body#layout .main-inner,
+body#layout .footer-inner {
+  overflow: visible;
+}
+
+
+body#layout .main-inner .column-center-outer .column-center-inner,
+body#layout .main-inner .column-left-outer .column-left-inner,
+body#layout .main-inner .column-right-outer .column-right-inner {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#layout .content-outer,
+#layout .content-fauxcolumn-outer,
+#layout .region-inner {
+  max-width: 800px;
+  min-width: 0;
+  width: auto;
+}
+
+body#layout .content-inner {
+  padding: 0 10px 10px 10px;
+}
+
+/**
+ * Styles to support the responsive template's rendering in the layout tab.
+ * Many copied from j/c/g/blogger/b2/staticresources/html/css/html5/*
+ */
+
+body#layout .clearfix {
+  *zoom: 1k
+}
+
+body#layout .clearfix:before,
+body#layout .clearfix:after {
+  content: "";
+  display: table;
+  line-height: 0;
+}
+
+body#layout .clearfix:after {
+  clear: both;
+}
+
+body#layout .page-container {
+  padding: 0;
+}
+
+body#layout .page-container .section.main {
+  float: left;
+  width: 55%;
+}
+
+body#layout .page-container aside {
+  float: right;
+  width: 31.62%;
+}
+
+body#layout .section h4 {
+  font-size: 16px;
+  line-height: 24px;
+  margin: 2px 24px 8px 24px;
+  text-align: center;
+  background: #ff4c60;
+  margin-right: 0;
+  margin-left: 0;
+  padding: 15px;
+  color: #fff;
+}
+
+body#layout .section-columns .section h4 {
+  margin: 2px 12px 8px 12px;
+}
+
+
+body#layout .add-icon,
+body#layout .visibility .layout-widget-state,
+body#layout .visibility .editlink.icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 24px;
+  width: 24px;
+}
+
+body#layout .layout-widget-state {
+  float: left;
+}
+
+body#layout .editlink.icon {
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+}
+
+body#layout .visibility .layout-widget-state.visible {
+  background-image: url(//www.gstatic.com/images/icons/material/system/1x/visibility_grey600_24dp.png);
+}
+
+body#layout .visibility .layout-widget-state.not-visible {
+  background-image: url(//www.gstatic.com/images/icons/material/system/1x/visibility_off_grey600_24dp.png);
+  opacity: 0.5;
+}
+
+body#layout .visibility .editlink.icon {
+  background-image: url(//www.gstatic.com/images/icons/material/system/1x/mode_edit_grey600_24dp.png);
+}
+
+body#layout .add-icon {
+  background-image: url(//www.gstatic.com/images/icons/material/system/1x/add_grey600_24dp.png);
+  float: left;
+}
+
+body#layout div.widget-content.visibility div.layout-title,
+body#layout div.widget-content.visibility div.layout-widget-description {
+  margin: 0 40px;
+}
+
+
 body#layout #header {float: left;width: 25%; position: sticky; top: 0;}
 body#layout #main {float: right;width: 65%}
+body#layout .widget-content, body#layout .locked-widget .widget-content { background-color: #ffdce0;}
         ]]>
     </b:template-skin>
-
   </head>
   <body>
     <b:section class='desktop-header-1 d-flex align-items-start flex-column light' id='header' name='Header Section' showaddelement='no'>
@@ -3058,27 +3427,81 @@ body#layout #main {float: right;width: 65%}
                 <b:widget-setting name='shrinkToFit'>false</b:widget-setting>
                 <b:widget-setting name='displayWidth'>108</b:widget-setting>
                 <b:widget-setting name='link'/>
-                <b:widget-setting name='caption'>Bangladeshi Wikipedian</b:widget-setting>
+                <b:widget-setting name='caption'>lexicographer</b:widget-setting>
               </b:widget-settings>
               <b:includable id='main'>
+                <script type='text/javascript'>
+            //<![CDATA[
+var
+  words = ['a Bangladeshi Wikipedian','a Frontend Developer','a lexicographer'],
+  part,
+  i = 0,
+  offset = 0,
+  len = words.length,
+  forwards = true,
+  skip_count = 0,
+  skip_delay = 5,
+  speed = 80;
+
+var wordflick = function(){
+  setInterval(function(){
+      if (forwards) {
+        if(offset >= words[i].length){
+          ++skip_count;
+          if (skip_count == skip_delay) {
+            forwards = false;
+            skip_count = 0;
+          }
+        }
+      }
+      else {
+         if(offset == 0){
+            forwards = true;
+            i++;
+            offset = 0;
+            if(i >= len){
+              i=0;
+            } 
+         }
+      }
+      part = words[i].substr(0, offset);
+      if (skip_count == 0) {
+        if (forwards) {
+          offset++;
+        }
+        else {
+          offset--;
+        }
+      }
+     $('.word').text(part);
+  },speed);
+};
+
+$(document).ready(function(){
+  wordflick();
+});
+     //]]>
+          </script>
                 <img class='mb-4' expr:alt='data:title' expr:height='data:height' expr:id='data:widget.instanceId + &quot;_img&quot;' expr:src='data:sourceUrl' expr:width='data:width'/>
                 <b:if cond='data:title != &quot;&quot;'>
                   <h1 class='mb-2 mt-0'><data:title/></h1>
                 </b:if>
                 <b:if cond='data:caption'>
-                  <p><data:caption/></p>
+                  <p>I am <span class='word'><data:caption/></span></p>
                 </b:if>
                 <b:include name='quickedit'/>
               </b:includable>
             </b:widget>
             <b:widget id='LinkList2' locked='false' title='Social Media Icons' type='LinkList' version='1'>
               <b:widget-settings>
+                <b:widget-setting name='link-3'>https://meta.wikimedia.org/wiki/user:Aishik_Rehman</b:widget-setting>
                 <b:widget-setting name='sorting'>NONE</b:widget-setting>
                 <b:widget-setting name='text-1'>twitter</b:widget-setting>
                 <b:widget-setting name='link-1'>#</b:widget-setting>
                 <b:widget-setting name='text-0'>facebook</b:widget-setting>
                 <b:widget-setting name='link-2'>#</b:widget-setting>
-                <b:widget-setting name='link-0'>#</b:widget-setting>
+                <b:widget-setting name='text-3'>wikipedia</b:widget-setting>
+                <b:widget-setting name='link-0'>https//facebook.com/aishikrehman</b:widget-setting>
                 <b:widget-setting name='text-2'>YouTube</b:widget-setting>
               </b:widget-settings>
               <b:includable id='main'>
@@ -3116,8 +3539,7 @@ body#layout #main {float: right;width: 65%}
               <b:section class='row' id='About' name='About Section'>
                 <b:widget id='Text1' locked='false' title='About Me' type='Text' version='1'>
                   <b:widget-settings>
-                    <b:widget-setting name='content'>I am Bolby Doe, web developer from London, United Kingdom. I have rich experience in web site
-                      design and building and customization, also I am good at WordPress.</b:widget-setting>
+                    <b:widget-setting name='content'>I am Bolby Doe, web developer from London, United Kingdom. I have rich experience in web site design and building and customization, also I am good at WordPress.</b:widget-setting>
                   </b:widget-settings>
                   <b:includable id='main'>
                     <b:class name='col-md-4'/>
@@ -3264,10 +3686,28 @@ body#layout #main {float: right;width: 65%}
         <div class='mt-5 text-center'><p class='mb-0'>Looking for a custom job? <a class='colorpink pointer'>Click here</a> to contact me! 👋</p></div>
       </div>
 
-      <b:section id='Experiences' name='Experiences Section'/>
+      <b:section id='Experiences' name='Experiences Section'>
+        <b:widget id='HTML2' locked='false' title='' type='HTML' version='1'>
+          <b:widget-settings>
+            <b:widget-setting name='content'><![CDATA[<div class="container"><div class="animated fadeInUp" style="animation-duration: 1s;"><h2 class="section-title">Experience</h2></div><div class="spacer" data-height="60"></div><div class="row"><div class="col-md-6"><div class="timeline edu bg-white rounded shadow-dark padding-30 overflow-hidden"><div class="animated fadeInUp" style="animation-duration: 1s;"><div class="timeline-container"><div class="content"><span class="time">2019 - Present</span><h3 class="title">Acamedic Degree</h3><p>Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.</p></div></div></div><div class="animated fadeInUp" style="animation-duration: 1s;"><div class="timeline-container"><div class="content"><span class="time">2017 - 2013</span><h3 class="title">Bachelor’s Degree</h3><p>Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.</p></div></div></div><div class="animated fadeInUp" style="animation-duration: 1s;"><div class="timeline-container"><div class="content"><span class="time">2013 - 2009</span><h3 class="title">Honours Degree</h3><p>Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.</p></div></div></div><span class="line"></span></div></div><div class="col-md-6"><div class="spacer d-md-none d-lg-none" data-height="30"></div><div class="timeline exp bg-white rounded shadow-dark padding-30 overflow-hidden"><div class="animated fadeInUp" style="animation-duration: 1s;"><div class="timeline-container"><div class="content"><span class="time">2019 - Present</span><h3 class="title">Web Designer</h3><p>Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.</p></div></div></div><div class="animated fadeInUp" style="animation-duration: 1s;"><div class="timeline-container"><div class="content"><span class="time">2017 - 2013</span><h3 class="title">Front-End Developer</h3><p>Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.</p></div></div></div><div class="animated fadeInUp" style="animation-duration: 1s;"><div class="timeline-container"><div class="content"><span class="time">2013 - 2009</span><h3 class="title">Back-End Developer</h3><p>Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.</p></div></div></div><span class="line"></span></div></div></div></div>]]></b:widget-setting>
+          </b:widget-settings>
+          <b:includable id='main'>
+            <!-- only display title if it's non-empty -->
+            <b:if cond='data:title != &quot;&quot;'>
+              <h2 class='title'><data:title/></h2>
+            </b:if>
+            <div class='widget-content'>
+              <data:content/>
+            </div>
+
+            <b:include name='quickedit'/>
+          </b:includable>
+        </b:widget>
+      </b:section>
       <b:section id='Works' name='Recent Works Section'/>
       <b:section id='Pricing' name='Pricing Section'/>
       <b:section id='Posts' name='Latest Posts Section'/>
+      <div class='spacer' data-height='96'/>
       <b:section id='Conatct' name='Conatct Section' showaddelement='yes'>
         <b:widget id='ContactForm1' locked='false' title='Get in touch' type='ContactForm' version='1'>
           <b:includable id='main'>
