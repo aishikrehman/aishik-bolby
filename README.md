@@ -5,7 +5,7 @@
 See https://aishik-bolby.blogspot.com/
 
 ## Screenshot
-<img src='https://github.com/aishikrehman/aishik-bolby/blob/main/Screenshot.jpg'/>
+<img src='https://github.com/aishikrehman/aishik-bolby/blob/main/screencapture.png'/>
 
 ## Installation
 1. Download the .xml file from this repository
