@@ -1,5 +1,8 @@
 # Aishik-Bolby
-* Preview  https://aishik-bolby.blogspot.com/
+* Author Aishik Rehman
+* Author URI - https://aishikrehman.com
+## Preview
+See https://aishik-bolby.blogspot.com/
 
 ## Screenshot
 <img src='https://github.com/aishikrehman/aishik-bolby/blob/main/Screenshot.jpg'/>
@@ -14,6 +17,8 @@
 * Bootstrap 5.2.2
 * Font Awsome Free 6.2.0
 * jQuery 3.6.1
+## License
+
 
 ## Help/Support
 * Email - contact@aishikrehman.com
