@@ -12,7 +12,7 @@
 
 ## Resources
 * Bootstrap 5.2.2
-* Font Awsome Free 6
+* Font Awsome Free 6.2.0
 * jQuery 3.6.1
 
 ## Help/Support
