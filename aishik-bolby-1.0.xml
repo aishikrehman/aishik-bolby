@@ -1091,6 +1091,7 @@ footer.footer.light {
 
 .btn-default:hover, contact-form-button:hover {
     color: #fff;
+    background: #ff4c60;
     -webkit-animation-name: button-push;
     animation-name: button-push;
     -webkit-animation-duration: .3s;
